@@ -31,9 +31,6 @@ class SupplierAdmin(admin.ModelAdmin):
     supplier_link.short_description = 'Ссылка на поставщика'
 
     def clear_debt(modelname, request, queryset):
-        print(request)
-        for supplier in queryset:
-            supplier.debt = 0
-            supplier.save()
+        queryset.update(debt=0)
 
     clear_debt.short_description = "Очистить задолженность"
