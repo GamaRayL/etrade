@@ -4,6 +4,8 @@ from users.models import User
 
 
 class Command(BaseCommand):
+    """Команда для создания обычного пользователя через интерфейс терминала"""
+
     def handle(self, *args, **options):
         try:
             email = input('Почта: ')

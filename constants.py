@@ -1,5 +1,5 @@
-ADMIN = 'администратор'
-MEMBER = 'участник'
+ADMIN = 'admin'
+MEMBER = 'member'
 
 USER_ROLES = {
     'admin': ADMIN,

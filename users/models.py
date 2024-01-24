@@ -19,6 +19,7 @@ class UserManager(BaseUserManager):
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
         user.password = make_password(password)
+        user.save(using=self._db)
         return user
 
     def create_user(self, email, password=None, **extra_fields):
@@ -37,9 +38,10 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
+    """Модель пользователя"""
     username = None
 
-    email = models.EmailField(max_length=255, verbose_name='почта')
+    email = models.EmailField(unique=True, max_length=255, verbose_name='почта')
     is_active = models.BooleanField(default=False, verbose_name='активен')
     key = models.CharField(max_length=100, verbose_name='ключ')
     role = models.CharField(max_length=20,
@@ -47,5 +49,11 @@ class User(AbstractUser):
                             default=MEMBER,
                             verbose_name='роль')
 
+    objects = UserManager()
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+    class Meta:
+        verbose_name = 'пользователя'
+        verbose_name_plural = 'пользователи'
