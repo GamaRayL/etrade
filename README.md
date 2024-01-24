@@ -46,6 +46,7 @@ django
 djangorestframework
 djangorestframework - simplejwt
 psycopg2 - binary
+drf - yasg
 requests
 python - dotenv
 ipython
@@ -60,6 +61,8 @@ ipython
 * `http://127.0.0.1:8000/api/users/token/` - получение токена зарегистрированного пользователя
 * `http://127.0.0.1:8000/api/users/token/refresh/` - продление токена без ввода данных
 * `http://127.0.0.1:8000/api/users/registration/` - регистрация нового пользователя
+* `http://127.0.0.1:8000/swagger/` - swagger документация
+* `http://127.0.0.1:8000/redoc/` - redoc документация
 
 ### Функциональные возможности и описание
 
